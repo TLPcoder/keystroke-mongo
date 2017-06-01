@@ -4,13 +4,13 @@ import { Link } from 'simple-react-router';
 import axios from 'axios';
 
 const LoginContainer = props => {
-    window.location = '/profile';
     function login(){
         axios.post('https://keystroke-backend.herokuapp.com/users/login',{
             email: document.getElementById('login-email').value,
             password: document.getElementById('login-password').value
         }).then(data =>{
             if(data.data.length !== 0){
+                window.location = '/profile';
                 sessionStorage.setItem('email', data.data[0].email);
             }else{
                 alert('wrong email or password');
@@ -25,7 +25,7 @@ const LoginContainer = props => {
             <br/>
             <input id = 'login-password' className='login-text' type="password" placeholder='password'/>
             <br/>
-            <input id='login-button' type="button" value='login' onClick ={login}/>
+            <Link href="/profile"><input id='login-button' type="button" value='login' onClick ={login}/></Link>
         </div>
     )
 }

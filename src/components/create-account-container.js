@@ -32,7 +32,7 @@ const CreateAccountContainer = props => {
             <textarea className='create-text' id ='create-user-description' name="Description" cols="30" rows="10"></textarea>
             <input className='create-text' id ='create-user-image' type="text" placeholder = 'image url'/>
             <br/>
-            <input id='create-button' type="button" value ='Create Account' onClick={createUser}/>
+            <Link href="/profile"><input id='create-button' type="button" value ='Create Account' onClick={createUser}/></Link>
         </div>
     )
 }
