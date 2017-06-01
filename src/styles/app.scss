@@ -1,5 +1,6 @@
 body{
     margin:0;
+    font-family: sans-serif;
 }
 h1 {
   color: blue;
@@ -26,11 +27,13 @@ h1 {
     display: inline-block;
     font-size: 16px;
     padding: 10px 18px;
+    margin-right: 10px;
 }
 #login-navbar a:hover{
     background-color: white; /* Green */
     color: red;
     border: 1px solid red;
+    padding: 9px 17px;
 }
 #login-navbar h1{
     color:white;
@@ -45,6 +48,7 @@ h1 {
     top:250px;
     background-color: #F1F1F1;
     text-align: center;
+    color:#363739
 }
 
 .login-text{
@@ -55,7 +59,7 @@ h1 {
     width:250px;
 }
 
-#login-button, #create-button{
+#login-button, #create-button, #update-button{
     margin-top: 20px;
     background-color: #4CAF50;
     border: none;
@@ -67,7 +71,7 @@ h1 {
     font-size: 16px;
 }
 
-#login-button:hover, #create-button:hover{
+#login-button:hover, #create-button:hover, #update-button:hover{
     background-color: white; /* Green */
     color: #4CAF50;
     border: 1px solid #4CAF50
@@ -81,7 +85,7 @@ h1 {
     width:250px;
 }
 
-#create-account-container{
+#create-account-container, #update-account-container{
     width:400px;
     height:500px;
     margin:auto;
@@ -90,9 +94,47 @@ h1 {
     background-color: #F1F1F1;
     text-align: center;
 }
+ #update-account-container{
+     width:400px;
+     height:370px;
+     margin:auto;
+     position: relative;
+     top:150px;
+     background-color: #F1F1F1;
+     text-align: center;
+ }
 #create-account-container textarea{
     height:100px;
     text-align: left;
     font-size: 15px;
     border:none;
+}
+#update-account-container textarea{
+    margin-top: 10px;
+    height:100px;
+    width:250px;
+    text-align: left;
+    font-size: 15px;
+    border:none;
+}
+
+#profile-container{
+    width: 500px;
+    margin:auto;
+    position: relative;
+    top: 100px;
+    height:500px;
+    background-color: #F1F1F1;
+    text-align: center;
+    font-family: sans-serif;
+    color:#363739;
+}
+#profile-container img{
+    margin-top: 30px;
+    border-radius: 50%;
+}
+#profile-container p{
+    text-align: left;
+    margin-left: 20px;
+    margin-right: 20px;
 }

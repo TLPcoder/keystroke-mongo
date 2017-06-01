@@ -56,12 +56,13 @@ export default class UpdateProfile extends Component{
         return(
             <div>
                 <NavBar/>
-                <div>
-                    <input id='update-profile-firstname' type="text" placeholder = 'First Name' onChange ={this.updateValue}/>
-                    <input id='update-profile-lastname' type="text" placeholder = 'First Name' onChange ={this.updateValue}/>
-                    <input id='update-profile-image' type="text" placeholder = 'Image Url' onChange ={this.updateValue}/>
+            <div id = 'update-account-container'>
+                    <input className = 'login-text' id='update-profile-firstname' type="text" placeholder = 'First Name' onChange ={this.updateValue}/>
+                    <input className = 'login-text' id='update-profile-lastname' type="text" placeholder = 'First Name' onChange ={this.updateValue}/>
+                    <input className = 'login-text' id='update-profile-image' type="text" placeholder = 'Image Url' onChange ={this.updateValue}/>
                     <textarea id='update-profile-description' cols="30" rows="10" placeholder = 'Description' onChange={this.updateValue}></textarea>
-                    <input type="button" value="Update" onClick={this.updateProfile}/>
+                    <br/>
+                    <input id = 'update-button' type="button" value="Update" onClick={this.updateProfile}/>
                 </div>
             </div>
         )

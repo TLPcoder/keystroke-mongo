@@ -27,12 +27,20 @@ export default class Navbar extends Component{
                     <Link href="/">Login</Link>
                 </div>
             )
+        }else if(this.props.navbar === 'profile'){
+            return(
+                <div id='login-navbar'>
+                    <h1>Keystroke</h1>
+                    <Link href="/" onClick={this.logout}>Logout</Link>
+                    <Link href="/update-profile">Update Profile</Link>
+                </div>
+            )
         }else{
             return(
-                <div>
+                <div id='login-navbar'>
                     <h1>Keystroke</h1>
-                <Link href="/update-profile">Update Profile</Link>
-                <Link href="/" onClick={this.logout}>Logout</Link>
+                    <Link href="/" onClick={this.logout}>Logout</Link>
+                    <Link href="/profile">Profile</Link>
                 </div>
             )
         }

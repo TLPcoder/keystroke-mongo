@@ -26,10 +26,12 @@ export default class Profile extends Component{
         console.log(this.state.userInfo);
         return(
             <div>
-                <Navbar/>
-                <img src={this.state.userInfo.image} alt="User doesnt have a profile image"/>
-                <p>{this.state.userInfo.firstName} {this.state.userInfo.lastName}</p>
-                <p>{this.state.userInfo.description}</p>
+                <Navbar navbar={'profile'}/>
+                <div  id = 'profile-container'>
+                    <img src={this.state.userInfo.image} alt="User doesnt have a profile image" height='300px' width='300px'/>
+                    <h4>{this.state.userInfo.firstName} {this.state.userInfo.lastName}</h4>
+                    <p>{this.state.userInfo.description}</p>
+                </div>
             </div>
         )
     }
