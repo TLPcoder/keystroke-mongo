@@ -3,12 +3,8 @@ import React, {Component} from 'react';
 import { Link } from 'simple-react-router';
 import axios from 'axios';
 
-export default class LoginContainer extends Component{
-    constructor(props){
-        super(props);
-        this.login = this.login.bind(this);
-    }
-    login(){
+const LoginContainer = props => {
+    function login(){
         axios.post('http://localhost:8080/users/login',{
             email: document.getElementById('login-email').value,
             password: document.getElementById('login-password').value
@@ -23,15 +19,15 @@ export default class LoginContainer extends Component{
             console.log(err);
         });
     }
-    render(){
-        return(
-            <div id = 'login-container'>
-                <input id = 'login-email' className='login-text' type="text" placeholder='email'/>
-                <br/>
-                <input id = 'login-password' className='login-text' type="password" placeholder='password'/>
-                <br/>
-                <input id='login-button' type="button" value='login' onClick ={this.login}/>
-            </div>
-        )
-    }
+    return(
+        <div id = 'login-container'>
+            <input id = 'login-email' className='login-text' type="text" placeholder='email'/>
+            <br/>
+            <input id = 'login-password' className='login-text' type="password" placeholder='password'/>
+            <br/>
+            <input id='login-button' type="button" value='login' onClick ={login}/>
+        </div>
+    )
 }
+
+export default LoginContainer;
