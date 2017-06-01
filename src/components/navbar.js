@@ -10,7 +10,7 @@ const Navbar = props => {
         return(
             <div id='login-navbar'>
                 <h1>Keystroke</h1>
-                <Link href="/profile">Create Accont</Link>
+                <Link href="/create-account">Create Accont</Link>
             </div>
         )
     }else if(props.navbar === 'create-account'){

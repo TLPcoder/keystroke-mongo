@@ -4,7 +4,7 @@ import axios from 'axios';
 
 const CreateAccountContainer = props => {
     function createUser(){
-        axios.post('http://localhost:8080/users/create-user',{
+        axios.post('https://keystroke-backend.herokuapp.com/users/create-user',{
             firstName:document.getElementById('create-user-firstname').value,
             lastName:document.getElementById('create-user-lastname').value,
             email:document.getElementById('create-user-email').value,
