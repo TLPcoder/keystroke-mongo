@@ -12,8 +12,8 @@ const LoginContainer = props => {
             if(data.data.length !== 0){
                 sessionStorage.setItem('email', data.data[0].email);
             }else{
-                window.location = '/';
                 alert('wrong email or password');
+                window.location = '/';
             }
         }).catch(err => {
             console.log(err);
