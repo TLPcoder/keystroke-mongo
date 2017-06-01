@@ -15,16 +15,16 @@ export default class Navbar extends Component{
         console.log(this.props.navbar);
         if(this.props.navbar === 'login'){
             return(
-                <div>
+                <div id='login-navbar'>
                     <h1>Keystroke</h1>
                     <Link href="/create-account">Create Accont</Link>
                 </div>
             )
         }else if(this.props.navbar === 'create-account'){
             return(
-                <div>
+                <div id='login-navbar'>
                     <h1>Keystroke</h1>
-                <Link href="/">Login</Link>
+                    <Link href="/">Login</Link>
                 </div>
             )
         }else{

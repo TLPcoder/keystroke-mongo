@@ -1,3 +1,98 @@
+body{
+    margin:0;
+}
 h1 {
   color: blue;
+}
+
+#login-navbar{
+    text-decoration: none;
+    text-align: center;
+    height:100px;
+    width:100%;
+    background-color: #0084BF;
+}
+#login-navbar a{
+    float:right;
+    text-decoration: none;
+    position: relative;
+    bottom:25px;
+    right:50px;
+    background-color: red;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    padding: 10px 18px;
+}
+#login-navbar a:hover{
+    background-color: white; /* Green */
+    color: red;
+    border: 1px solid red;
+}
+#login-navbar h1{
+    color:white;
+    position: relative;
+    top:30px;
+}
+#login-container{
+    width:400px;
+    height:200px;
+    margin:auto;
+    position: relative;
+    top:250px;
+    background-color: #F1F1F1;
+    text-align: center;
+}
+
+.login-text{
+    margin-top: 20px;
+    font-size: 20px;
+    text-align: center;
+    height:40px;
+    width:250px;
+}
+
+#login-button, #create-button{
+    margin-top: 20px;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+#login-button:hover, #create-button:hover{
+    background-color: white; /* Green */
+    color: #4CAF50;
+    border: 1px solid #4CAF50
+}
+
+.create-text{
+    margin-top: 20px;
+    font-size: 20px;
+    text-align: center;
+    height:40px;
+    width:250px;
+}
+
+#create-account-container{
+    width:400px;
+    height:500px;
+    margin:auto;
+    position: relative;
+    top:100px;
+    background-color: #F1F1F1;
+    text-align: center;
+}
+#create-account-container textarea{
+    height:100px;
+    text-align: left;
+    font-size: 15px;
+    border:none;
 }

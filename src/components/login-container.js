@@ -26,9 +26,11 @@ export default class LoginContainer extends Component{
     render(){
         return(
             <div id = 'login-container'>
-                <input id = 'login-email' type="text" placeholder='email'/>
-                <input id = 'login-password' type="password" placeholder='password'/>
-                <input type="button" value='login' onClick ={this.login}/>
+                <input id = 'login-email' className='login-text' type="text" placeholder='email'/>
+                <br/>
+                <input id = 'login-password' className='login-text' type="password" placeholder='password'/>
+                <br/>
+                <input id='login-button' type="button" value='login' onClick ={this.login}/>
             </div>
         )
     }

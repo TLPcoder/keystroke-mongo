@@ -30,13 +30,14 @@ export default class CreateAccountContainer extends Component{
     render(){
         return(
             <div id = 'create-account-container'>
-                <input id ='create-user-firstname' type="text" placeholder='first name'/>
-                <input id ='create-user-lastname' type="text" placeholder='last name'/>
-                <input id='create-user-email' placeholder ='email' type="text"/>
-                <input id ='create-user-password' type="password" placeholder='password'/>
-                <textarea id ='create-user-description' name="Description" cols="30" rows="10"></textarea>
-                <input id ='create-user-image' type="text" placeholder = 'image url'/>
-                <input type="button" value ='Create Account' onClick={this.createUser}/>
+                <input className='create-text' id ='create-user-firstname' type="text" placeholder='first name'/>
+                <input className='create-text' id ='create-user-lastname' type="text" placeholder='last name'/>
+                <input className='create-text' id='create-user-email' placeholder ='email' type="text"/>
+                <input className='create-text' id ='create-user-password' type="password" placeholder='password'/>
+                <textarea className='create-text' id ='create-user-description' name="Description" cols="30" rows="10"></textarea>
+                <input className='create-text' id ='create-user-image' type="text" placeholder = 'image url'/>
+                <br/>
+                <input id='create-button' type="button" value ='Create Account' onClick={this.createUser}/>
             </div>
         )
     }
