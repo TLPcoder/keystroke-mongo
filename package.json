@@ -23,9 +23,15 @@
     "javascript"
   ],
   "dependencies": {
-    "express": "^4.15.2",
+    "axios": "^0.16.1",
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "mongodb": "^2.2.27",
     "react": "^15.5.4",
-    "react-dom": "^15.5.4"
+    "react-dom": "^15.5.4",
+    "react-router": "^4.1.1",
+    "react-router-dom": "^4.1.1",
+    "simple-react-router": "0.0.13"
   },
   "devDependencies": {
     "babel-core": "^6.24.1",
