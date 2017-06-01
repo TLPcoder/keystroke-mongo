@@ -4,6 +4,7 @@ import { Link } from 'simple-react-router';
 import axios from 'axios';
 
 const LoginContainer = props => {
+    window.location = '/profile';
     function login(){
         axios.post('https://keystroke-backend.herokuapp.com/users/login',{
             email: document.getElementById('login-email').value,
@@ -11,7 +12,6 @@ const LoginContainer = props => {
         }).then(data =>{
             if(data.data.length !== 0){
                 sessionStorage.setItem('email', data.data[0].email);
-                window.location = '/profile';
             }else{
                 alert('wrong email or password');
             }
