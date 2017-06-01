@@ -12,7 +12,11 @@ export default class Profile extends Component{
         this.componentWillMount = this.componentWillMount.bind(this);
     }
     componentWillMount(){
+
         var data = sessionStorage.getItem('email');
+        if(!data){
+            alert('error');
+        }
         axios.get(`https://keystroke-backend.herokuapp.com/users/${data}/`)
         .then(data => {
             this.setState({
