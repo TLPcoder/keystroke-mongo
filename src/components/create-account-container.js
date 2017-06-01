@@ -2,12 +2,8 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 
-export default class CreateAccountContainer extends Component{
-    constructor(props){
-        super(props);
-        this.createUser = this.createUser.bind(this);
-    }
-    createUser(){
+const CreateAccountContainer = props => {
+    function createUser(){
         axios.post('http://localhost:8080/users/create-user',{
             firstName:document.getElementById('create-user-firstname').value,
             lastName:document.getElementById('create-user-lastname').value,
@@ -27,18 +23,17 @@ export default class CreateAccountContainer extends Component{
             console.log(err);
         });
     }
-    render(){
-        return(
-            <div id = 'create-account-container'>
-                <input className='create-text' id ='create-user-firstname' type="text" placeholder='first name'/>
-                <input className='create-text' id ='create-user-lastname' type="text" placeholder='last name'/>
-                <input className='create-text' id='create-user-email' placeholder ='email' type="text"/>
-                <input className='create-text' id ='create-user-password' type="password" placeholder='password'/>
-                <textarea className='create-text' id ='create-user-description' name="Description" cols="30" rows="10"></textarea>
-                <input className='create-text' id ='create-user-image' type="text" placeholder = 'image url'/>
-                <br/>
-                <input id='create-button' type="button" value ='Create Account' onClick={this.createUser}/>
-            </div>
-        )
-    }
+    return(
+        <div id = 'create-account-container'>
+            <input className='create-text' id ='create-user-firstname' type="text" placeholder='first name'/>
+            <input className='create-text' id ='create-user-lastname' type="text" placeholder='last name'/>
+            <input className='create-text' id='create-user-email' placeholder ='email' type="text"/>
+            <input className='create-text' id ='create-user-password' type="password" placeholder='password'/>
+            <textarea className='create-text' id ='create-user-description' name="Description" cols="30" rows="10"></textarea>
+            <input className='create-text' id ='create-user-image' type="text" placeholder = 'image url'/>
+            <br/>
+            <input id='create-button' type="button" value ='Create Account' onClick={createUser}/>
+        </div>
+    )
 }
+export default CreateAccountContainer;
