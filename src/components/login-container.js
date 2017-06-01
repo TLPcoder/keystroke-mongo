@@ -10,9 +10,9 @@ const LoginContainer = props => {
             password: document.getElementById('login-password').value
         }).then(data =>{
             if(data.data.length !== 0){
-                window.location = '/profile';
                 sessionStorage.setItem('email', data.data[0].email);
             }else{
+                window.location = '/';
                 alert('wrong email or password');
             }
         }).catch(err => {
