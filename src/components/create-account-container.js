@@ -16,7 +16,6 @@ const CreateAccountContainer = props => {
             console.log(data);
             if(data.data.user !== true){
                 sessionStorage.setItem('email', data.data[0].email);
-                window.location = '/profile';
             }else{
                 alert('The email address you have entered is already in use');
             }
