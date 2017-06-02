@@ -35,7 +35,7 @@ export default class LoginContainer extends Component{
                 <br/>
                 <input id = 'login-password' className='login-text' type="password" placeholder='password'/>
                 <br/>
-                <Link href="/profile"><input id='login-button' type="button" value='login' onClick ={login}/></Link>
+            <Link href="/profile"><input id='login-button' type="button" value='login' onClick ={this.login}/></Link>
             </div>
         )
     }
