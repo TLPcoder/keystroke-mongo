@@ -15,7 +15,7 @@ export default class Profile extends Component{
 
         var data = sessionStorage.getItem('email');
         if(!data){
-            alert('error');
+            window.location = '/';
         }
         axios.get(`https://keystroke-backend.herokuapp.com/users/${data}/`)
         .then(data => {

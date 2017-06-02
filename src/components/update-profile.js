@@ -62,7 +62,7 @@ export default class UpdateProfile extends Component{
                     <input className = 'login-text' id='update-profile-image' type="text" placeholder = 'Image Url' onChange ={this.updateValue}/>
                     <textarea id='update-profile-description' cols="30" rows="10" placeholder = 'Description' onChange={this.updateValue}></textarea>
                     <br/>
-                    <input id = 'update-button' type="button" value="Update" onClick={this.updateProfile}/>
+                    <Link href="/profile"><input id = 'update-button' type="button" value="Update" onClick={this.updateProfile}/></Link>
                 </div>
             </div>
         )
