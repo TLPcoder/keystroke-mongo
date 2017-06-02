@@ -47,7 +47,7 @@ export default class UpdateProfile extends Component{
         image: this.state.userInfo.image
         }).then(data => {
             if(data.data === 'updated'){
-                window.location = '/profile';
+                console.log('updated!');
             }
         }).catch(err =>{
             console.log(err);
