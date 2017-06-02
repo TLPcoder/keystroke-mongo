@@ -2,12 +2,12 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 
-export default class LoginContainer extends {
+export default class LoginContainer extends Component{
     constructor(props) {
         super(props);
         this.state = {
-            email:'',
-            password:''
+            email: '',
+            password: ''
         };
     }
     login() {
@@ -26,10 +26,10 @@ export default class LoginContainer extends {
             console.log(err);
         });
     }
-    updateLogin(event){
-        if(event.target.id === 'login-email'){
+    updateLogin(event) {
+        if (event.target.id === 'login-email') {
             this.state.email = event.target.value;
-        }else{
+        } else {
             this.state.password = event.target.value;
         }
     }
@@ -38,12 +38,10 @@ export default class LoginContainer extends {
             <div id='login-container'>
                 <input id='login-email' className='login-text' type="text" placeholder='email' onChange={this.updateLogin}/>
                 <br/>
-            <input id='login-password' className='login-text' type="password" placeholder='password' onChange={this.updateLogin}/>
+                <input id='login-password' className='login-text' type="password" placeholder='password' onChange={this.updateLogin}/>
                 <br/>
                 <input id='login-button' type="button" value='login' onClick ={login}/>
             </div>
         )
     }
 }
-}
-export default LoginContainer;
