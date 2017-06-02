@@ -15,7 +15,7 @@ export default class UpdateProfile extends Component{
     }
     componentWillMount(){
         var data = sessionStorage.getItem('email');
-        axios.get(`https://keystroke-backend.herokuapp.com/users/${data}/`)
+        axios.get(`https://keystroke-interview.herokuapp.com/users/${data}/`)
         .then(data => {
             this.setState({
                 userInfo:data.data[0]

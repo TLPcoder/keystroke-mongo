@@ -17,7 +17,7 @@ export default class Profile extends Component{
         if(!data){
             window.location = '/';
         }
-        axios.get(`https://keystroke-backend.herokuapp.com/users/${data}/`)
+        axios.get(`https://keystroke-interview.herokuapp.com/users/${data}/`)
         .then(data => {
             this.setState({
                 userInfo:data.data[0]
