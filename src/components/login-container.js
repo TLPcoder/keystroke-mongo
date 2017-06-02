@@ -43,7 +43,7 @@ export default class LoginContainer extends Component {
         return (
             <div id='login-container'>
                 <form action="">
-                    <input id='login-email' className='login-text' type="text" placeholder='email' onChange={this.updateLogin} required/>
+                    <input id='login-email' className='login-text' type="email" placeholder='email' onChange={this.updateLogin} required/>
                     <br/>
                     <input id='login-password' className='login-text' type="password" placeholder='password' onChange={this.updateLogin} required/>
                     <br/>
