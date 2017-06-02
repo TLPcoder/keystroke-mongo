@@ -8,9 +8,10 @@ const LoginContainer = props => {
             email: document.getElementById('login-email').value,
             password: document.getElementById('login-password').value
         }).then(data =>{
+            console.log(data);
             if(data.data.length !== 0){
                 sessionStorage.setItem('email', data.data[0].email);
-                props.history.push('/profile');
+                // props.history.push('/profile');
             }else{
                 alert('wrong email or password');
             }

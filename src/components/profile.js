@@ -40,6 +40,7 @@ export default class Profile extends Component {
         } else {
             return (
                 <div>
+                    <Navbar navbar={'profile'}/>
                     <h1>{this.state.userInfo}</h1>
                 </div>
             )
