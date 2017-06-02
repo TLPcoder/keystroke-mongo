@@ -1,6 +1,7 @@
 'use strict';
 import React, {Component} from 'react';
 import NavBar from './navbar';
+import { Link } from 'simple-react-router';
 import axios from 'axios';
 
 export default class UpdateProfile extends Component{
