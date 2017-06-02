@@ -12,6 +12,7 @@ export default class Profile extends Component {
         this.componentWillMount = this.componentWillMount.bind(this);
     }
     componentWillMount() {
+        var data = sessionStorage.getItem('email');
         axios.get(`https://keystroke-interview.herokuapp.com/users/${data}/`).then(data => {
             this.setState({userInfo: data.data[0]});
         }).catch(err => {
