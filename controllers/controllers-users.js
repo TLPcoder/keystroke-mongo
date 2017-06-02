@@ -71,20 +71,22 @@ exports.login = (req, res) => {
                 bcrypt.compare(`${req.body.password}/\/`, results[0].password, function(err, response) {
                     if (err) {
                         console.log(err);
-                        res.json([]);
                     }
                     if (response) {
                         res.json(results);
                     } else {
+                        //'wrong password for existing email'
                         res.json(['wrong password']);
                     }
                 });
-            }else{
-                res.json(['results[0] == undefined']);
+            } else {
+                //'results[0] == undefined when email does not exist in database'
+                res.json([]);
             }
         });
     } else {
-        res.json(['password or email length < 1']);
+        //'password or email length < 1'
+        res.json([]);
     }
 };
 
