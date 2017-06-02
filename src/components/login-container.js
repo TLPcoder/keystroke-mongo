@@ -13,23 +13,25 @@ export default class LoginContainer extends Component {
         this.updateLogin = this.updateLogin.bind(this);
     }
     login() {
-        console.log(this.state.password);
-        console.log(this.state.email);
-        axios.post('http://localhost:8080/users/login', {
-            email: this.state.email,
-            password: this.state.password
-        }).then(data => {
-            console.log(data);
-            if (data.data.length !== 0) {
-                sessionStorage.setItem('email', data.data[0].email);
-                this.props.history.push('/profile');
-            } else {
-                alert('wrong email or password');
-            }
-        }).catch(err => {
-            alert('wrong password or email');
-            console.log(err);
-        });
+
+        if (this.state.password.length !== 0 && this.state.email.length !== 0) {
+            axios.post('http://localhost:8080/users/login', {
+                email: this.state.email,
+                password: this.state.password
+            }).then(data => {
+                console.log(data);
+                if (data.data.length !== 0) {
+                    sessionStorage.setItem('email', data.data[0].email);
+                    this.props.history.push('/profile');
+                } else {
+                    alert('wrong email or password');
+                }
+            }).catch(err => {
+                console.log(err);
+            });
+        }else{
+            alert('Please enter a email or password');
+        }
     }
     updateLogin(event) {
         if (event.target.id === 'login-email') {
