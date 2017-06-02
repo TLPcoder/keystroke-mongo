@@ -7,12 +7,13 @@ export default class LoginContainer extends Component {
         super(props);
         this.state = {
             email: '',
-            password: ''
+            password: 'a'
         };
         this.login = this.login.bind(this);
         this.updateLogin = this.updateLogin.bind(this);
     }
     login() {
+        console.log(this.state.password);
         axios.post('http://localhost:8080/users/login', {
             email: this.state.email,
             password: this.state.password
