@@ -68,7 +68,7 @@ exports.login = (req, res) => {
                 console.log(err);
                 res.json([]);
             }
-            if (req.body.password.length && results[0].password) {
+            if (req.body.password.length && results[0] !== undefined) {
                 bcrypt.compare(`${req.body.password}/\/`, results[0].password, function(err, response) {
                     if (err) {
                         console.log(err);
