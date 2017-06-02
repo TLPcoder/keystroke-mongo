@@ -20,7 +20,7 @@ module.exports = {
             res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
 
             // intercept OPTIONS method
-            if ('OPTIONS' === req.method && req.hostname === 'localhost') {
+            if ('OPTIONS' === req.method) {
                 res.sendStatus(200);
             } else {
                 next();
