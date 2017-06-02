@@ -47,7 +47,7 @@ export default class UpdateProfile extends Component{
         }).then(data => {
             if(data.data === 'updated'){
                 console.log('updated!');
-                props.history.push('/profile');
+                this.props.history.push('/profile');
             }
         }).catch(err =>{
             console.log(err);

@@ -18,7 +18,7 @@ export default class Profile extends Component {
             if (data.data.length !== 0) {
                 this.setState({userInfo: data.data[0]});
             } else {
-                window.location = '/';
+                alert('wrong email or password');
             }
         }).catch(err => {
             console.log(err);
