@@ -12,8 +12,9 @@ export default class LoginContainer extends Component {
         this.login = this.login.bind(this);
         this.updateLogin = this.updateLogin.bind(this);
     }
-    login() {
+    login(event) {
         if (this.state.password.trim().length !== 0 && this.state.email.trim().length !== 0) {
+            event.preventDefault();
             axios.post('https://keystroke-interview.herokuapp.com/users/login', {
                 email: this.state.email,
                 password: this.state.password
@@ -27,8 +28,8 @@ export default class LoginContainer extends Component {
             }).catch(err => {
                 console.log(err);
             });
-        }else{
-            alert('Please enter a email and password');
+        } else {
+            return;
         }
     }
     updateLogin(event) {
@@ -41,11 +42,13 @@ export default class LoginContainer extends Component {
     render() {
         return (
             <div id='login-container'>
-                <input id='login-email' className='login-text' type="text" placeholder='email' onChange={this.updateLogin} required/>
-                <br/>
-                <input id='login-password' className='login-text' type="password" placeholder='password' onChange={this.updateLogin} required/>
-                <br/>
-                <input id='login-button' type="button" value='login' onClick ={this.login}/>
+                <form action="">
+                    <input id='login-email' className='login-text' type="text" placeholder='email' onChange={this.updateLogin} required/>
+                    <br/>
+                    <input id='login-password' className='login-text' type="password" placeholder='password' onChange={this.updateLogin} required/>
+                    <br/>
+                    <input id='login-button' type="submit" value='login' onClick ={this.login}/>
+                </form>
             </div>
         )
     }
