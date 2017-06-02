@@ -14,7 +14,7 @@ export default class Profile extends Component {
     componentWillMount() {
         var data = sessionStorage.getItem('email');
         console.log(data);
-        axios.get(`https://keystroke-interview.herokuapp.com/users/${data}`).then(data => {
+        axios.get(`http://localhost:8080/users/${data}`).then(data => {
             if (data.data.length !== 0) {
                 this.setState({userInfo: data.data[0]});
             } else {
