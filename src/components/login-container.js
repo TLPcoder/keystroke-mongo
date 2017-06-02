@@ -14,7 +14,7 @@ export default class LoginContainer extends Component {
     }
     login() {
 
-        if (this.state.password.length !== 0 && this.state.email.length !== 0) {
+        if (this.state.password.trim().length !== 0 && this.state.email.trim().length !== 0) {
             axios.post('http://localhost:8080/users/login', {
                 email: this.state.email,
                 password: this.state.password
