@@ -1,6 +1,7 @@
 'use strict';
 import React, {Component} from 'react';
 import Navbar from './navbar';
+import axios from '.axios';
 
 export default class SearchUsers extends Component {
     constructor(props) {
