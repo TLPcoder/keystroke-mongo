@@ -7,7 +7,7 @@ const CreateAccount = props => {
     return(
         <div>
             <Navbar navbar='create-account'/>
-            <CreateAccountContainer/>
+            <CreateAccountContainer router={props}/>
         </div>
     )
 }

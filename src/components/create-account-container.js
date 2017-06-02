@@ -1,6 +1,6 @@
 'use strict';
 import React, {Component} from 'react';
-import { Link } from 'simple-react-router';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 const CreateAccountContainer = props => {
@@ -13,26 +13,23 @@ const CreateAccountContainer = props => {
             description:document.getElementById('create-user-description').value,
             image:document.getElementById('create-user-image').value
         }).then(data => {
+            sessionStorage.setItem('email', document.getElementById('create-user-email').value);
+            props.router.history.push('/profile');
             console.log(data);
         }).catch(err=>{
             console.log(err);
         });
     }
-    function session(event){
-        console.log(event.target);
-        sessionStorage.clear();
-        sessionStorage.setItem('email', event.target.value);
-    }
     return(
         <div id = 'create-account-container'>
             <input className='create-text' id ='create-user-firstname' type="text" placeholder='first name'/>
             <input className='create-text' id ='create-user-lastname' type="text" placeholder='last name'/>
-            <input className='create-text' id='create-user-email' placeholder ='email' type="text" onChange={session}/>
+            <input className='create-text' id='create-user-email' placeholder ='email' type="text"/>
             <input className='create-text' id ='create-user-password' type="password" placeholder='password'/>
             <textarea className='create-text' id ='create-user-description' name="Description" cols="30" rows="10"></textarea>
             <input className='create-text' id ='create-user-image' type="text" placeholder = 'image url'/>
             <br/>
-            <Link href="/profile"><input id='create-button' type="button" value ='Create Account' onClick={createUser}/></Link>
+            <input id='create-button' type="button" value ='Create Account' onClick={createUser}/>
         </div>
     )
 }

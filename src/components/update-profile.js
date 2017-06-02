@@ -1,7 +1,7 @@
 'use strict';
 import React, {Component} from 'react';
 import NavBar from './navbar';
-import { Link } from 'simple-react-router';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 export default class UpdateProfile extends Component{
@@ -63,7 +63,7 @@ export default class UpdateProfile extends Component{
                     <input className = 'login-text' id='update-profile-image' type="text" placeholder = 'Image Url' onChange ={this.updateValue}/>
                     <textarea id='update-profile-description' cols="30" rows="10" placeholder = 'Description' onChange={this.updateValue}></textarea>
                     <br/>
-                    <Link href="/profile"><input id = 'update-button' type="button" value="Update" onClick={this.updateProfile}/></Link>
+                    <Link to="/profile"><input id = 'update-button' type="button" value="Update" onClick={this.updateProfile}/></Link>
                 </div>
             </div>
         )

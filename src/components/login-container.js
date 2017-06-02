@@ -1,6 +1,5 @@
 'use strict';
 import React, {Component} from 'react';
-import { Link } from 'simple-react-router';
 import axios from 'axios';
 
 const LoginContainer = props => {
@@ -11,6 +10,7 @@ const LoginContainer = props => {
         }).then(data =>{
             if(data.data.length !== 0){
                 sessionStorage.setItem('email', data.data[0].email);
+                props.history.push('/profile');
             }else{
                 alert('wrong email or password');
             }
@@ -18,18 +18,13 @@ const LoginContainer = props => {
             console.log(err);
         });
     }
-    function session(event){
-        console.log(event.target);
-        sessionStorage.clear();
-        sessionStorage.setItem('email', event.target.value);
-    }
     return(
         <div id = 'login-container'>
-            <input id = 'login-email' className='login-text' type="text" placeholder='email' onChange={session}/>
+            <input id = 'login-email' className='login-text' type="text" placeholder='email'/>
             <br/>
             <input id = 'login-password' className='login-text' type="password" placeholder='password'/>
             <br/>
-            <Link href="/profile"><input id='login-button' type="button" value='login' onClick ={login}/></Link>
+            <input id='login-button' type="button" value='login' onClick ={login}/>
         </div>
     )
 }
