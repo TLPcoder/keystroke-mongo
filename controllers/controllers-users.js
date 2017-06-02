@@ -66,7 +66,6 @@ exports.login = (req, res) => {
         db.collection('users').find({email: req.body.email}).toArray((err, results) => {
             if (err) {
                 console.log(err);
-                res.json([]);
             }
             if (req.body.password.length && results[0] !== undefined) {
                 bcrypt.compare(`${req.body.password}/\/`, results[0].password, function(err, response) {
@@ -77,15 +76,15 @@ exports.login = (req, res) => {
                     if (response) {
                         res.json(results);
                     } else {
-                        res.json([]);
+                        res.json(['wrong password']);
                     }
                 });
             }else{
-                res.json([]);
+                res.json(['results[0] == undefined']);
             }
         });
     } else {
-        res.json([]);
+        res.json(['password or email length < 1']);
     }
 };
 
