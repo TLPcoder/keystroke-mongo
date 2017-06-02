@@ -18,9 +18,12 @@ const LoginContainer = props => {
             console.log(err);
         });
     }
+    function sessionStorage(event){
+        sessionStorage.setItem('email', event.target.value);
+    }
     return(
         <div id = 'login-container'>
-            <input id = 'login-email' className='login-text' type="text" placeholder='email'/>
+            <input id = 'login-email' className='login-text' type="text" placeholder='email' onClick={sessionStorage}/>
             <br/>
             <input id = 'login-password' className='login-text' type="password" placeholder='password'/>
             <br/>

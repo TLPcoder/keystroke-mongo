@@ -14,20 +14,18 @@ const CreateAccountContainer = props => {
             image:document.getElementById('create-user-image').value
         }).then(data => {
             console.log(data);
-            if(data.data.user !== true){
-                sessionStorage.setItem('email', data.data[0].email);
-            }else{
-                alert('The email address you have entered is already in use');
-            }
         }).catch(err=>{
             console.log(err);
         });
+    }
+    function sessionStorage(event){
+        sessionStorage.setItem('email', event.target.value);
     }
     return(
         <div id = 'create-account-container'>
             <input className='create-text' id ='create-user-firstname' type="text" placeholder='first name'/>
             <input className='create-text' id ='create-user-lastname' type="text" placeholder='last name'/>
-            <input className='create-text' id='create-user-email' placeholder ='email' type="text"/>
+            <input className='create-text' id='create-user-email' placeholder ='email' type="text" onChange={sessionStorage}/>
             <input className='create-text' id ='create-user-password' type="password" placeholder='password'/>
             <textarea className='create-text' id ='create-user-description' name="Description" cols="30" rows="10"></textarea>
             <input className='create-text' id ='create-user-image' type="text" placeholder = 'image url'/>
