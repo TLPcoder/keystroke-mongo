@@ -5,7 +5,6 @@ import LoginContainer from './login-container';
 import { Switch, Route } from 'react-router-dom';
 
 const Login = props => {
-    console.log('login props', props);
     return (
         <div>
             <Navbar navbar={'login'}/>

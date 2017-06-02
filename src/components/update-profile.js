@@ -25,7 +25,6 @@ export default class UpdateProfile extends Component{
         });
     }
     updateValue(event){
-        console.log(event.target.id);
         if(event.target.id === 'update-profile-firstname'){
             this.state.userInfo.firstName = event.target.value;
         }else if(event.target.id === 'update-profile-lastname'){
@@ -46,7 +45,6 @@ export default class UpdateProfile extends Component{
         image: this.state.userInfo.image
         }).then(data => {
             if(data.data === 'updated'){
-                console.log('updated!');
                 this.props.history.push('/profile');
             }
         }).catch(err =>{
