@@ -7,13 +7,14 @@ export default class LoginContainer extends Component {
         super(props);
         this.state = {
             email: '',
-            password: 'a'
+            password: ''
         };
         this.login = this.login.bind(this);
         this.updateLogin = this.updateLogin.bind(this);
     }
     login() {
         console.log(this.state.password);
+        console.log(this.state.email);
         axios.post('http://localhost:8080/users/login', {
             email: this.state.email,
             password: this.state.password
@@ -26,6 +27,7 @@ export default class LoginContainer extends Component {
                 alert('wrong email or password');
             }
         }).catch(err => {
+            alert('wrong password or email');
             console.log(err);
         });
     }
