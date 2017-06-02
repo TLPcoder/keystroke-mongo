@@ -13,7 +13,7 @@ export default class LoginContainer extends Component {
         this.updateLogin = this.updateLogin.bind(this);
     }
     login(event) {
-        if (this.state.password.trim().length !== 0 && this.state.email.trim().length !== 0) {
+        if (this.state.password.trim().length !== 0 && this.state.email.trim().length !== 0 && this.state.email.split('').includes('@')) {
             event.preventDefault();
             axios.post('https://keystroke-interview.herokuapp.com/users/login', {
                 email: this.state.email,

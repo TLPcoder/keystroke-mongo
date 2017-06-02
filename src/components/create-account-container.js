@@ -18,7 +18,7 @@ export default class CreateAccountContainer extends Component {
         this.updateUserInfo = this.updateUserInfo.bind(this);
     }
     createUser(event) {
-        if (this.state.firstName !== '' && this.state.lastName !== '' && this.state.email !== '' && this.state.password !== '') {
+        if (this.state.firstName !== '' && this.state.lastName !== '' && this.state.email !== '' && this.state.password !== '' && this.state.email.split('').includes('@')) {
             event.preventDefault();
             axios.post('https://keystroke-interview.herokuapp.com/users/create-user', {
                 firstName: this.state.firstName,
