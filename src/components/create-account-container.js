@@ -19,6 +19,8 @@ const CreateAccountContainer = props => {
         });
     }
     function sessionStorage(event){
+        console.log(event.target);
+        sessionStorage.clear();
         sessionStorage.setItem('email', event.target.value);
     }
     return(
