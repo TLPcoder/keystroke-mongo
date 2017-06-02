@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 const CreateAccountContainer = props => {
-    function createUser(){
+    function createUser(event){
+        event.preventDefault();
         axios.post('https://keystroke-interview.herokuapp.com/users/create-user',{
             firstName:document.getElementById('create-user-firstname').value,
             lastName:document.getElementById('create-user-lastname').value,
@@ -29,7 +30,7 @@ const CreateAccountContainer = props => {
                 <textarea className='create-text' id ='create-user-description' name="Description" cols="30" rows="10"></textarea>
                 <input className='create-text' id ='create-user-image' type="text" placeholder = 'image url'/>
                 <br/>
-                <input id='create-button' type="button" value ='Create Account' onClick={createUser}/>
+                <input id='create-button' type="submit" value ='Create Account' onClick={createUser}/>
             </form>
         </div>
     )
