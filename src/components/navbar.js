@@ -27,6 +27,7 @@ const Navbar = props => {
                 <h1>Keystroke</h1>
                 <Link to="/" onClick={logout}>Logout</Link>
                 <Link to="/update-profile">Update Profile</Link>
+                <Link to="/search-users">Search Users</Link>
             </div>
         )
     } else {
