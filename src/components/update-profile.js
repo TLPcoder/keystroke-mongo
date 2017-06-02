@@ -37,7 +37,7 @@ export default class UpdateProfile extends Component{
         }
     }
     updateProfile(){
-        axios.put('http://localhost:8080/update-user',{
+        axios.put('http://localhost:8080/users/update-user',{
         firstName: this.state.userInfo.firstName,
         lastName: this.state.userInfo.lastName,
         email: this.state.userInfo.email,
