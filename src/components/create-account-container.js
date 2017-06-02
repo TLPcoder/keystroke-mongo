@@ -18,7 +18,7 @@ const CreateAccountContainer = props => {
             console.log(err);
         });
     }
-    function sessionStorage(event){
+    function session(event){
         console.log(event.target);
         sessionStorage.clear();
         sessionStorage.setItem('email', event.target.value);
@@ -27,7 +27,7 @@ const CreateAccountContainer = props => {
         <div id = 'create-account-container'>
             <input className='create-text' id ='create-user-firstname' type="text" placeholder='first name'/>
             <input className='create-text' id ='create-user-lastname' type="text" placeholder='last name'/>
-            <input className='create-text' id='create-user-email' placeholder ='email' type="text" onChange={sessionStorage}/>
+            <input className='create-text' id='create-user-email' placeholder ='email' type="text" onChange={session}/>
             <input className='create-text' id ='create-user-password' type="password" placeholder='password'/>
             <textarea className='create-text' id ='create-user-description' name="Description" cols="30" rows="10"></textarea>
             <input className='create-text' id ='create-user-image' type="text" placeholder = 'image url'/>

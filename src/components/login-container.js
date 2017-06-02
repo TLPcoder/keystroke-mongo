@@ -25,7 +25,7 @@ const LoginContainer = props => {
     }
     return(
         <div id = 'login-container'>
-            <input id = 'login-email' className='login-text' type="text" placeholder='email' onClick={session}/>
+            <input id = 'login-email' className='login-text' type="text" placeholder='email' onChange={session}/>
             <br/>
             <input id = 'login-password' className='login-text' type="password" placeholder='password'/>
             <br/>
