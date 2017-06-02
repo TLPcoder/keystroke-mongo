@@ -10,6 +10,8 @@ router.post('/login', controllers.login);
 
 router.put('/update-user', controllers.updateUser);
 
+router.get('/all-users', controllers.getAllUsers);
+
 router.get('/:email', controllers.getUser);
 
 

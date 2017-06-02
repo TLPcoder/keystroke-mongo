@@ -97,3 +97,13 @@ exports.getUser = (req, res) => {
         // send HTML file populated with quotes here
     });
 };
+
+exports.getAllUsers = (req,res) => {
+    db.collection('users').toArray((err, results) => {
+        if(err){
+            console.log(err);
+        }else{
+            res.json(results);
+        }
+    });
+};
