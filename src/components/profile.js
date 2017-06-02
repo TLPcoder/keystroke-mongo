@@ -9,7 +9,7 @@ export default class Profile extends Component {
         this.state = {
             userInfo: 'Loading...'
         };
-        this.componentWillMount = this.componentWillMount.bind(this);
+        this.componentDidMount = this.componentDidMount.bind(this);
     }
     componentDidMount() {
         var data = sessionStorage.getItem('email');
