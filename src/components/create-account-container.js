@@ -22,10 +22,10 @@ const CreateAccountContainer = props => {
     }
     return(
         <div id = 'create-account-container'>
-            <input className='create-text' id ='create-user-firstname' type="text" placeholder='first name'/>
-            <input className='create-text' id ='create-user-lastname' type="text" placeholder='last name'/>
-            <input className='create-text' id='create-user-email' placeholder ='email' type="text"/>
-            <input className='create-text' id ='create-user-password' type="password" placeholder='password'/>
+            <input className='create-text' id ='create-user-firstname' type="text" placeholder='first name' required/>
+            <input className='create-text' id ='create-user-lastname' type="text" placeholder='last name' required/>
+            <input className='create-text' id='create-user-email' placeholder ='email' type="email" required/>
+            <input className='create-text' id ='create-user-password' type="password" placeholder='password' required/>
             <textarea className='create-text' id ='create-user-description' name="Description" cols="30" rows="10"></textarea>
             <input className='create-text' id ='create-user-image' type="text" placeholder = 'image url'/>
             <br/>

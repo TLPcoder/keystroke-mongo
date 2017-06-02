@@ -13,7 +13,6 @@ export default class LoginContainer extends Component {
         this.updateLogin = this.updateLogin.bind(this);
     }
     login() {
-
         if (this.state.password.trim().length !== 0 && this.state.email.trim().length !== 0) {
             axios.post('http://localhost:8080/users/login', {
                 email: this.state.email,
@@ -30,7 +29,7 @@ export default class LoginContainer extends Component {
                 console.log(err);
             });
         }else{
-            alert('Please enter a email or password');
+            alert('Please enter a email and password');
         }
     }
     updateLogin(event) {
@@ -44,9 +43,9 @@ export default class LoginContainer extends Component {
     render() {
         return (
             <div id='login-container'>
-                <input id='login-email' className='login-text' type="text" placeholder='email' onChange={this.updateLogin}/>
+                <input id='login-email' className='login-text' type="text" placeholder='email' onChange={this.updateLogin} required/>
                 <br/>
-                <input id='login-password' className='login-text' type="password" placeholder='password' onChange={this.updateLogin}/>
+                <input id='login-password' className='login-text' type="password" placeholder='password' onChange={this.updateLogin} required/>
                 <br/>
                 <input id='login-button' type="button" value='login' onClick ={this.login}/>
             </div>
