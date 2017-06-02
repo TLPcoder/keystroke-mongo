@@ -99,7 +99,7 @@ exports.getUser = (req, res) => {
 };
 
 exports.getAllUsers = (req,res) => {
-    db.collection('users').toArray((err, results) => {
+    db.collection('users').find().toArray((err, results) => {
         if(err){
             console.log(err);
         }else{
