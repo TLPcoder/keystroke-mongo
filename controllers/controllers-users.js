@@ -61,17 +61,27 @@ exports.updateUser = (req, res) => {
 };
 
 exports.login = (req, res) => {
-    db.collection('users').find({email: req.body.email}).toArray((err, results) => {
-        bcrypt.compare(`${req.body.password}/\/`, results[0].password, function(err, response) {
-            if(err){
+    if (req.body.password.trim().length !== 0 && req.body.email.trim().length !== 0) {
+        db.collection('users').find({email: req.body.email}).toArray((err, results) => {
+            if (err) {
                 console.log(err);
-            }if(response){
-                res.json(results);
-            }else{
                 res.json([]);
             }
+            bcrypt.compare(`${req.body.password}/\/`, results[0].password, function(err, response) {
+                if (err) {
+                    console.log(err);
+                    res.json([]);
+                }
+                if (response) {
+                    res.json(results);
+                } else {
+                    res.json([]);
+                }
+            });
         });
-    });
+    }else{
+        res.json([]);
+    }
 };
 
 exports.getUser = (req, res) => {

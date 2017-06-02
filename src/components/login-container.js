@@ -38,6 +38,7 @@ export default class LoginContainer extends Component {
             this.state.email = event.target.value;
         } else {
             this.state.password = event.target.value;
+            console.log(this.state.password);
         }
     }
     render() {
