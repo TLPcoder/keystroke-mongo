@@ -1,33 +1,54 @@
 'use strict';
 import React, {Component} from 'react';
-import { Link } from 'simple-react-router';
 import axios from 'axios';
 
-const LoginContainer = props => {
-    function login(){
-        axios.post('http://localhost:8080/users/login',{
-            email: document.getElementById('login-email').value,
-            password: document.getElementById('login-password').value
-        }).then(data =>{
-            if(data.data.length !== 0){
-                sessionStorage.setItem('email', data.data[0].email);
-                window.location = '/profile';
-            }else{
-                alert('wrong email or password');
-            }
-        }).catch(err => {
-            console.log(err);
-        });
+export default class LoginContainer extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            email: '',
+            password: ''
+        };
+        this.login = this.login.bind(this);
+        this.updateLogin = this.updateLogin.bind(this);
     }
-    return(
-        <div id = 'login-container'>
-            <input id = 'login-email' className='login-text' type="text" placeholder='email'/>
-            <br/>
-            <input id = 'login-password' className='login-text' type="password" placeholder='password'/>
-            <br/>
-            <input id='login-button' type="button" value='login' onClick ={login}/>
-        </div>
-    )
+    login() {
+        if (this.state.password.trim().length !== 0 && this.state.email.trim().length !== 0) {
+            axios.post('http://localhost:8080/users/login', {
+                email: this.state.email,
+                password: this.state.password
+            }).then(data => {
+                console.log(data);
+                if (data.data.length !== 0) {
+                    sessionStorage.setItem('email', data.data[0].email);
+                    this.props.history.push('/profile');
+                } else {
+                    alert('wrong email or password');
+                }
+            }).catch(err => {
+                console.log(err);
+            });
+        }else{
+            alert('Please enter a email and password');
+        }
+    }
+    updateLogin(event) {
+        if (event.target.id === 'login-email') {
+            this.state.email = event.target.value;
+        } else {
+            this.state.password = event.target.value;
+            console.log(this.state.password);
+        }
+    }
+    render() {
+        return (
+            <div id='login-container'>
+                <input id='login-email' className='login-text' type="text" placeholder='email' onChange={this.updateLogin} required/>
+                <br/>
+                <input id='login-password' className='login-text' type="password" placeholder='password' onChange={this.updateLogin} required/>
+                <br/>
+                <input id='login-button' type="button" value='login' onClick ={this.login}/>
+            </div>
+        )
+    }
 }
-
-export default LoginContainer;

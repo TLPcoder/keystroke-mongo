@@ -61,17 +61,33 @@ exports.updateUser = (req, res) => {
 };
 
 exports.login = (req, res) => {
-    db.collection('users').find({email: req.body.email}).toArray((err, results) => {
-        bcrypt.compare(`${req.body.password}/\/`, results[0].password, function(err, response) {
-            if(err){
+    console.log(req.body);
+    if (req.body.password.trim().length !== 0 && req.body.email.trim().length !== 0) {
+        db.collection('users').find({email: req.body.email}).toArray((err, results) => {
+            if (err) {
                 console.log(err);
-            }if(response){
-                res.json(results);
-            }else{
+            }
+            if (req.body.password.length && results[0] !== undefined) {
+                bcrypt.compare(`${req.body.password}/\/`, results[0].password, function(err, response) {
+                    if (err) {
+                        console.log(err);
+                    }
+                    if (response) {
+                        res.json(results);
+                    } else {
+                        //'wrong password for existing email'
+                        res.json(['wrong password']);
+                    }
+                });
+            } else {
+                //'results[0] == undefined when email does not exist in database'
                 res.json([]);
             }
         });
-    });
+    } else {
+        //'password or email length < 1'
+        res.json([]);
+    }
 };
 
 exports.getUser = (req, res) => {

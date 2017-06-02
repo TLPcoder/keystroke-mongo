@@ -2,12 +2,16 @@
 import React, {Component} from 'react';
 import Navbar from './navbar';
 import LoginContainer from './login-container';
+import { Switch, Route } from 'react-router-dom';
 
 const Login = props => {
+    console.log('login props', props);
     return (
         <div>
             <Navbar navbar={'login'}/>
-            <LoginContainer/>
+            <Switch>
+                <Route exact path='/' component={LoginContainer}/>
+            </Switch>
         </div>
     )
 }
