@@ -2,13 +2,15 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 
-export default class LoginContainer extends Component{
+export default class LoginContainer extends Component {
     constructor(props) {
         super(props);
         this.state = {
             email: '',
             password: ''
         };
+        this.login = this.login.bind(this);
+        this.updateLogin = this.updateLogin.bind(this);
     }
     login() {
         axios.post('http://localhost:8080/users/login', {
@@ -40,7 +42,7 @@ export default class LoginContainer extends Component{
                 <br/>
                 <input id='login-password' className='login-text' type="password" placeholder='password' onChange={this.updateLogin}/>
                 <br/>
-                <input id='login-button' type="button" value='login' onClick ={login}/>
+                <input id='login-button' type="button" value='login' onClick ={this.login}/>
             </div>
         )
     }
