@@ -68,17 +68,18 @@ exports.login = (req, res) => {
                 console.log(err);
                 res.json([]);
             }
-            bcrypt.compare(`${req.body.password}/\/`, results[0].password, function(err, response) {
-                if (err) {
-                    console.log(err);
-                    res.json([]);
-                }
-                if (response) {
-                    res.json(results);
-                } else {
-                    res.json([]);
-                }
-            });
+            res.json(results);
+            // bcrypt.compare(`${req.body.password}/\/`, results[0].password, function(err, response) {
+            //     if (err) {
+            //         console.log(err);
+            //         res.json([]);
+            //     }
+            //     if (response) {
+            //         res.json(results);
+            //     } else {
+            //         res.json([]);
+            //     }
+            // });
         });
     }else{
         res.json([]);
