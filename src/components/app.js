@@ -6,16 +6,7 @@ import CreateAccount from './create-account';
 import Profile from './profile';
 import UpdateProfile from './update-profile';
 import { Switch, Route } from 'react-router-dom';
-// Pages
 
-// export default class App extends SimpleReactRouter {
-//   routes(map){
-//     map('/',Login);
-//     map('/create-account',CreateAccount);
-//     map('/profile', Profile);
-//     map('/update-profile', UpdateProfile);
-//   }
-// }
 const App = props => {
     return (
         <Switch>

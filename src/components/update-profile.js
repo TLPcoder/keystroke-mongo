@@ -15,7 +15,7 @@ export default class UpdateProfile extends Component{
     }
     componentWillMount(){
         var data = sessionStorage.getItem('email');
-        axios.get(`http://localhost:8080/users/${data}/`)
+        axios.get(`https://keystroke-interview.herokuapp.com/users/${data}/`)
         .then(data => {
             this.setState({
                 userInfo:data.data[0]
@@ -37,7 +37,7 @@ export default class UpdateProfile extends Component{
         }
     }
     updateProfile(){
-        axios.put('http://localhost:8080/users/update-user',{
+        axios.put('https://keystroke-interview.herokuapp.com/users/update-user',{
         firstName: this.state.userInfo.firstName,
         lastName: this.state.userInfo.lastName,
         email: this.state.userInfo.email,

@@ -14,11 +14,10 @@ export default class LoginContainer extends Component {
     }
     login() {
         if (this.state.password.trim().length !== 0 && this.state.email.trim().length !== 0) {
-            axios.post('http://localhost:8080/users/login', {
+            axios.post('https://keystroke-interview.herokuapp.com/users/login', {
                 email: this.state.email,
                 password: this.state.password
             }).then(data => {
-                console.log(data);
                 if (data.data.length !== 0) {
                     sessionStorage.setItem('email', data.data[0].email);
                     this.props.history.push('/profile');
@@ -37,7 +36,6 @@ export default class LoginContainer extends Component {
             this.state.email = event.target.value;
         } else {
             this.state.password = event.target.value;
-            console.log(this.state.password);
         }
     }
     render() {
