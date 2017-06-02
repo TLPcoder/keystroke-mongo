@@ -61,6 +61,7 @@ exports.updateUser = (req, res) => {
 };
 
 exports.login = (req, res) => {
+    console.log(req.body);
     if (req.body.password.trim().length !== 0 && req.body.email.trim().length !== 0) {
         db.collection('users').find({email: req.body.email}).toArray((err, results) => {
             if (err) {
