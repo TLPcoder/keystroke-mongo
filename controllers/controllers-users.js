@@ -76,7 +76,7 @@ exports.login = (req, res) => {
                         res.json(results);
                     } else {
                         //'wrong password for existing email'
-                        res.json(['wrong password']);
+                        res.json([]);
                     }
                 });
             } else {
