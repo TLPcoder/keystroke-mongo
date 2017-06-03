@@ -35,6 +35,7 @@ const Navbar = props => {
             <div id='login-navbar'>
                 <h1>Keystroke</h1>
                 <Link to="/" onClick={logout}>Logout</Link>
+                <Link to="/search-users">Search Users</Link>
                 <Link to="/profile">Profile</Link>
             </div>
         )

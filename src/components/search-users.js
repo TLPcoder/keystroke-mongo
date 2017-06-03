@@ -1,6 +1,7 @@
 'use strict';
 import React, {Component} from 'react';
 import Navbar from './navbar';
+import {Link} from 'react-router-dom';
 import axios from 'axios';
 
 export default class SearchUsers extends Component {
@@ -12,19 +13,27 @@ export default class SearchUsers extends Component {
     }
     componentWillMount() {
         axios.get('http://localhost:8080/users/all-users').then(data => {
-            this.state.users = data.map(el => {
+            console.log(data);
+            var mappedUsers = data.data.map(el => {
+            var link = `/search-user/${el.email}`;
                 return (
                     <div className='user-card'>
-                        <img src={el.image} alt="User never uploaded an image" height='250px' width='250px'/>
-                        <h4>{el.firstName} {el.lastName}</h4>
+                        <Link to={link}>
+                            <img src={el.image} alt="User never uploaded an image" height='250px' width='250px'/>
+                            <h4>{el.firstName} {el.lastName}</h4>
+                        </Link>
                     </div>
                 )
-            });
+            })
+            this.setState({
+                users:mappedUsers
+            })
         }).catch(err => {
             console.log(err);
         });
     }
     render() {
+        console.log('user', this.state.users);
         if (Array.isArray(this.state.users)) {
             return (
                 <div>
