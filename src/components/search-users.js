@@ -13,7 +13,6 @@ export default class SearchUsers extends Component {
     }
     componentWillMount() {
         axios.get('https://keystroke-interview.herokuapp.com/users/all-users').then(data => {
-            console.log(data);
             var mappedUsers = data.data.map(el => {
             var link = `/search-user/${el.email}`;
                 return (
@@ -33,7 +32,6 @@ export default class SearchUsers extends Component {
         });
     }
     render() {
-        console.log('user', this.state.users);
         if (Array.isArray(this.state.users)) {
             return (
                 <div>

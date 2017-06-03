@@ -12,7 +12,6 @@ export default class SearchUserProfile extends Component {
         this.componentWillMount = this.componentWillMount.bind(this);
     }
     componentWillMount() {
-        console.log(this.props);
         var user = this.props.location.pathname.split('/')[2];
         console.log(user);
         axios.get(`https://keystroke-interview.herokuapp.com/users/${user}`).then(data => {
